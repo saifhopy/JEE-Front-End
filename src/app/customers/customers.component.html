@@ -1,0 +1,58 @@
+<div class="container mt-2">
+  <ng-container *ngIf="customers | async; else failureOrLoading">
+    <div class="card custom-card">
+      <div class="card-header custom-header">
+        Customers
+      </div>
+      <div class="card-body">
+        <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchCustomer()" class="custom-form">
+          <div class="input-group">
+            <label class="input-group-text custom-label">Keyword :</label>
+            <input type="text" formControlName="keyword" class="form-control custom-input">
+            <button class="btn btn-info custom-button">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </form>
+        <div class="table custom-table">
+          <table>
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let c of customers | async">
+              <td>{{ c.id }}</td>
+              <td>{{ c.name }}</td>
+              <td>{{ c.email }}</td>
+              <td *ngIf="auth.hasRole('ADMIN')">
+                <button class="btn btn-danger custom-action-button" (click)="handelDeleteCustomer(c)">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+              <td>
+                <button (click)="handelCustomerAccount(c)" class="btn btn-success custom-action-button">
+                  accounts
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #failureOrLoading>
+    <ng-container *ngIf="errorMessage; else loading">
+      <div class="text-danger custom-error">
+        {{ errorMessage }}
+      </div>
+    </ng-container>
+    <ng-template #loading>
+      <div class="custom-loading">Loading...</div>
+    </ng-template>
+  </ng-template>
+</div>

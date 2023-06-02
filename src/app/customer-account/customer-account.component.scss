@@ -1,0 +1,52 @@
+.custom-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-header {
+  background-color: #f8f8f8;
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.custom-label {
+  color: #555;
+  font-weight: bold;
+}
+
+.custom-value {
+  color: #333;
+}
+
+.custom-table {
+  margin-top: 20px;
+}
+
+.custom-pagination {
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.custom-pagination .btn {
+  padding: 5px 10px;
+}
+
+.custom-pagination .btn-info {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.custom-pagination .btn-outline-info {
+  background-color: #fff;
+  color: #17a2b8;
+  border: 1px solid #17a2b8;
+}
+
+.custom-pagination .btn-outline-info:hover {
+  background-color: #17a2b8;
+  color: #fff;
+}
